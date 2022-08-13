@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="navbar.css">
+<style>
+    #main{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 20px;
+    }
+    #main div img{
+        width: 100%;
+        height: 250px;
+    }
+  
+</style>    
+</head>
+<body>
+   
+    <div id="nav">
+        
+    </div>
+
+    <div id="main">
+
+    </div>
+</body>
+<script type="module">
+    import navbar from "./components/navbar.js";
+    document.getElementById("nav").innerHTML=navbar();
+
+const url=`https://www.themealdb.com/api/json/v1/1/random.php`;
+
+async function getdata(){
+   
+   let res= await fetch(url);
+   let data= await res.json();
+   append(data.meals);
+   console.log(data);
+
+}
+// search();
+function append(data){
+
+    let main= document.getElementById("main");
+
+    data.forEach((el)=>{
+
+let div= document.createElement("div");
+
+let img=document.createElement("img");
+img.src=el.strMealThumb;
+
+let p= document.createElement("h2");
+p.innerText= el.strMeal;
+
+div.append(img,p)
+main.append(div);
+    })
+}
+getdata();
+
+
+</script>
+</html>

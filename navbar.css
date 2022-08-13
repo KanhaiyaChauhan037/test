@@ -1,0 +1,18 @@
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: aquamarine;
+    color: blue;
+    font-weight: bold;
+    align-items: center;
+
+}
+
+#option {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+
+}
