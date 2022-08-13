@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<div>
+    <h1>signUp</h1>
+    <h1>Login</h1>
+</div>
+<input type="text" id="name" placeholder="enter your name">
+<input type="text" id="pass" placeholder="enter your password">
+<button onclick="singup()"> Submit </button>
+
+
+</body>
+
+<script>
+
+function singup(){
+
+    let name= document.getElementById("name").value;
+    let pass= document.getElementById("pass").value;
+
+let s1=new Student();
+
+s1.signUp(name,pass)
+
+console.log(users);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    let users = [];
+
+    class user {
+        #password;
+        constructor(n) {
+            // this.name=n;
+            this.orgnization = "masai";
+        }
+
+        #validateUsername(username) {
+
+            // if(username.includes("#")){
+            //     return false;
+            // }else{
+            //     return true;
+            // }
+            let value = username.includes("#") ? false : true
+            return value;
+
+        }
+
+
+
+        #validatedPassword(password) {
+
+            let value = password.includes("123") ? false : true;
+            return value;
+
+        }
+
+        Login(username, password) {
+
+            if (username === this.username && password === this.#password) {
+
+                console.log("User Login Successfully")
+            } else {
+                console.log("User Login failled")
+            }
+        }
+
+
+
+
+        signUp(username, password) {
+
+            let isvalidated = false;
+
+            isvalidated = this.#validateUsername(username) && this.#validatedPassword(password);
+
+            if (isvalidated) {
+                this.username = username;
+                this.#password = password;
+
+                console.log("User Register successfully")
+
+                users.push(this);
+
+            } else {
+                console.log("Please enter your  correct details")
+            }
+
+        }
+
+    }
+
+    // let u1= new user("kanhaiya");
+    let u1 = new user();
+
+    u1.signUp("kanhaiya", "kanhaiyapass")
+
+    // console.log(u1);
+    u1.Login("kanhaiya", "kanhaiyapass");
+
+class Student extends user {
+ 
+    constructor(){
+        super();
+
+        this.NumofAssignments=0;
+
+    }
+    submitAssignment(){
+        this.NumofAssignments++;
+        console.log("%c Accepted","color : green");
+    }
+
+}
+let s1= new Student();
+
+s1.submitAssignment();
+s1.submitAssignment();
+
+
+// Admin part
+
+class Admin extends user {
+
+constructor(){
+    super();
+}
+
+RemoveUser(username){
+
+users = users.filter((el)=>{
+    return el.username != username;
+
+});
+
+};
+};
+
+let admin= new Admin();
+admin.signUp("main", "final")
+admin.Login("main","final");
+
+admin.RemoveUser("kanhaiya")
+
+console.log(users)
+
+</script>
+
+</html>
