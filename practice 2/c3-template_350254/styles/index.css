@@ -1,0 +1,51 @@
+
+      #navbar{
+        display: flex;
+        justify-content: center;
+        height: 70px;
+        background-color: brown;
+        gap: 17%;
+        
+      }
+      input{
+        width: 25%;
+        display: block;
+        height: 40px;
+        margin-top: 10px;
+        border-radius: 10px;
+        background-color: antiquewhite;
+      }
+      h2{
+        color: white;
+        margin-top: 15px;
+      }
+      a{
+        text-decoration: none;
+        color: white;
+      }
+      #sorting{
+        background-color: green;
+        height: 50px;
+        display: flex;
+      }
+      button{
+        display: block;
+        margin: auto;
+        background-color:skyblue;
+        color: white;
+        border: none;
+      }
+      h1{
+        text-align: center;
+      }
+      #hotels_list{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: auto;
+        gap: 20px;
+      }
+      img{
+        height: 180px;
+        width: 180;
+      }
+    
